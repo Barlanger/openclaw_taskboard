@@ -276,17 +276,54 @@ docker-compose build --no-cache frontend
 
 ### Security
 
-1. **Change default MongoDB credentials**
+1. **Add authentication middleware**
+   - Current API endpoints are not protected
+   - Implement Firebase Admin SDK for token verification
+   - Or use JWT-based authentication
+   
+   ```typescript
+   // Example middleware
+   import admin from 'firebase-admin';
+   
+   async function authenticateToken(req, res, next) {
+     const token = req.headers.authorization?.split('Bearer ')[1];
+     if (!token) return res.status(401).json({ error: 'Unauthorized' });
+     
+     try {
+       const decodedToken = await admin.auth().verifyIdToken(token);
+       req.user = decodedToken;
+       next();
+     } catch (error) {
+       res.status(403).json({ error: 'Invalid token' });
+     }
+   }
+   ```
+
+2. **Add rate limiting**
+   - Install express-rate-limit: `npm install express-rate-limit`
+   - Protect API endpoints from abuse
+   
+   ```typescript
+   import rateLimit from 'express-rate-limit';
+   
+   const limiter = rateLimit({
+     windowMs: 15 * 60 * 1000, // 15 minutes
+     max: 100 // limit each IP to 100 requests per windowMs
+   });
+   
+   app.use('/api/', limiter);
+   ```
+
+3. **Change default MongoDB credentials**
    ```yaml
    environment:
      MONGO_INITDB_ROOT_USERNAME: admin
      MONGO_INITDB_ROOT_PASSWORD: strongpassword
    ```
 
-2. **Use environment variables for sensitive data**
-3. **Enable authentication middleware on backend**
-4. **Use HTTPS with SSL certificates**
-5. **Set up proper CORS policies**
+4. **Use environment variables for sensitive data**
+5. **Use HTTPS with SSL certificates**
+6. **Set up proper CORS policies**
 
 ### Performance
 
