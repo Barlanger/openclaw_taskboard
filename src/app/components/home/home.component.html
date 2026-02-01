@@ -1,0 +1,55 @@
+<div class="home-container">
+  <div class="hero">
+    <h1 class="hero-title">
+      <span class="bracket">&lt;</span>
+      Welcome to NerdBlog
+      <span class="bracket">/&gt;</span>
+    </h1>
+    <p class="hero-subtitle">
+      A developer-focused blogging platform for sharing knowledge, tutorials, and tech insights
+    </p>
+  </div>
+
+  <div class="posts-container">
+    @if (posts.length === 0) {
+      <div class="no-posts">
+        <p>No blog posts yet. Check back soon!</p>
+      </div>
+    } @else {
+      <div class="posts-grid">
+        @for (post of posts; track post.id) {
+          <article class="post-card">
+            <div class="post-header">
+              <h2 class="post-title">
+                <a [routerLink]="['/post', post.slug]">{{ post.title }}</a>
+              </h2>
+              <div class="post-meta">
+                <span class="post-author">
+                  <span class="icon">👤</span>
+                  {{ post.author }}
+                </span>
+                <span class="post-date">
+                  <span class="icon">📅</span>
+                  {{ formatDate(post.createdAt) }}
+                </span>
+              </div>
+            </div>
+            
+            <p class="post-excerpt">{{ getExcerpt(post.content) }}</p>
+            
+            <div class="post-footer">
+              <div class="post-tags">
+                @for (tag of post.tags; track tag) {
+                  <span class="tag">{{ tag }}</span>
+                }
+              </div>
+              <a [routerLink]="['/post', post.slug]" class="read-more">
+                Read more →
+              </a>
+            </div>
+          </article>
+        }
+      </div>
+    }
+  </div>
+</div>

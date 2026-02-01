@@ -1,0 +1,172 @@
+.admin-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.admin-header {
+  margin-bottom: 2rem;
+}
+
+.admin-header h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #c9d1d9;
+  font-family: 'Courier New', monospace;
+}
+
+.bracket {
+  color: #58a6ff;
+}
+
+.admin-form {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: #c9d1d9;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  font-size: 1rem;
+  font-family: 'Courier New', monospace;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #58a6ff;
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1);
+}
+
+.textarea {
+  resize: vertical;
+  line-height: 1.6;
+  font-family: 'Courier New', monospace;
+  min-height: 400px;
+}
+
+.form-hint {
+  display: block;
+  color: #8b949e;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #58a6ff, #1f6feb);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(88, 166, 255, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+}
+
+.btn-secondary:hover {
+  background: #161b22;
+  border-color: #58a6ff;
+}
+
+.markdown-help {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.markdown-help h3 {
+  color: #c9d1d9;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+.help-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.help-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.help-item code {
+  background: #161b22;
+  color: #79c0ff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  border: 1px solid #30363d;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 2rem 1rem;
+  }
+
+  .admin-form {
+    padding: 1.5rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .help-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,42 @@
+<header class="header">
+  <div class="header-content">
+    <div class="logo">
+      <a routerLink="/">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">NerdBlog</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+    </div>
+    
+    <nav class="nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Home
+      </a>
+      @if (authService.isAdmin()) {
+        <a routerLink="/admin" routerLinkActive="active">
+          Admin
+        </a>
+      }
+    </nav>
+
+    <div class="auth-section">
+      @if (authService.currentUser()) {
+        <div class="user-info">
+          @if (authService.currentUser()?.photoURL) {
+            <img [src]="authService.currentUser()!.photoURL!" alt="User avatar" class="avatar">
+          }
+          <span class="username">{{ authService.currentUser()?.displayName || authService.currentUser()?.email }}</span>
+          @if (authService.isAdmin()) {
+            <span class="admin-badge">ADMIN</span>
+          }
+          <button (click)="logout()" class="btn btn-outline">Logout</button>
+        </div>
+      } @else {
+        <button (click)="login()" class="btn btn-primary">
+          <span class="google-icon">G</span>
+          Login with Google
+        </button>
+      }
+    </div>
+  </div>
+</header>
