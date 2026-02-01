@@ -2,6 +2,16 @@
 
 A full-stack developer-focused blogging platform with Angular 21 frontend, Node.js/Express backend, and MongoDB database.
 
+## ⚠️ First-Time Setup Required
+
+**Before running the application, you must configure Firebase for authentication:**
+
+1. 📖 **See [FIREBASE_SETUP.md](FIREBASE_SETUP.md)** for detailed setup instructions
+2. Update `src/environments/environment.ts` with your Firebase credentials
+3. Enable Google Authentication in your Firebase project
+
+Without this setup, you'll see an "auth/api-key-not-valid" error when trying to login.
+
 ## 🚀 Quick Start with Docker
 
 The easiest way to run the complete application:
@@ -30,7 +40,7 @@ docker compose down
 
 ### Frontend (Angular 21)
 - Dark nerd-themed UI with monospace fonts
-- Google authentication via Firebase
+- Google authentication via Firebase **(requires setup)**
 - Markdown blog post rendering
 - Admin panel for content management
 - Responsive design

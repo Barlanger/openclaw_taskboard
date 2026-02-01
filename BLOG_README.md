@@ -34,30 +34,18 @@ cd openclaw_taskboard
 npm install
 ```
 
-3. Set up Firebase:
+3. **Set up Firebase** (REQUIRED):
 
-   a. Go to [Firebase Console](https://console.firebase.google.com/)
+   📖 **See [FIREBASE_SETUP.md](FIREBASE_SETUP.md) for complete step-by-step instructions**
    
-   b. Create a new project or use an existing one
-   
-   c. Enable Google Authentication:
-      - Go to Authentication > Sign-in method
-      - Enable Google as a sign-in provider
-   
-   d. Get your Firebase configuration:
-      - Go to Project Settings > General
-      - Scroll down to "Your apps" section
-      - Copy the Firebase configuration object
+   Quick summary:
+   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
+   - Enable Google Authentication
+   - Copy your Firebase configuration
+   - Update `src/environments/environment.ts` with your credentials
 
-4. Update Firebase configuration:
+4. Configure Admin Users (optional):
 
-   Edit `src/environments/environment.ts` and `src/environments/environment.prod.ts`:
-   
-   ```typescript
-   export const environment = {
-     production: false, // true for prod
-     firebase: {
-       apiKey: "YOUR_API_KEY",
        authDomain: "YOUR_AUTH_DOMAIN",
        projectId: "YOUR_PROJECT_ID",
        storageBucket: "YOUR_STORAGE_BUCKET",
