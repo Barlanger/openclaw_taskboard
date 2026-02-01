@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users",
+    uniqueConstraints = @UniqueConstraint(columnNames = {"oauth_provider", "oauth_id"})
+)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,10 +25,10 @@ public class User {
     @Column(nullable = false)
     private String name;
 
-    @Column(unique = true)
+    @Column(name = "oauth_provider")
     private String oauthProvider; // e.g., "google", "github"
 
-    @Column(unique = true)
+    @Column(name = "oauth_id")
     private String oauthId; // OAuth provider's user ID
 
     @Column(nullable = false)

@@ -23,12 +23,7 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable()) // Disable CSRF for simplicity in development
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**", "/api/users/current", "/h2-console/**").permitAll()
-                .requestMatchers("/api/blog-posts/public/**").permitAll()
-                .requestMatchers("/api/blog-posts/**").authenticated()
-                .requestMatchers("/api/comments/**").authenticated()
-                .requestMatchers("/api/users/**").hasRole("ADMIN")
-                .anyRequest().permitAll()
+                .anyRequest().permitAll() // Allow all requests for development
             )
             .headers(headers -> headers.frameOptions(frame -> frame.disable())); // For H2 console
 
