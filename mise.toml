@@ -1,0 +1,23 @@
+# mise configuration for TaskBoard_Me project
+# Install mise: https://mise.jdx.dev/getting-started.html
+# Usage: Run `mise install` to install all tools
+
+[tools]
+# Node.js for Angular frontend (v18+ required)
+node = "20.11.0"
+
+# Java for Spring Boot backend (v17 required)
+java = "temurin-17.0.10+7"
+
+# Maven for backend build (v3.6+ required)
+maven = "3.9.6"
+
+[env]
+# Environment variables for the project
+_.file = ".env"
+
+# Java configuration
+JAVA_HOME = "{{config_root}}/.mise/installs/java/temurin-17.0.10+7"
+
+# Maven configuration  
+MAVEN_OPTS = "-Xmx1024m"

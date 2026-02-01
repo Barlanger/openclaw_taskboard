@@ -53,3 +53,9 @@ backend/mvnw.cmd
 *.war
 *.ear
 *.log
+
+# Environment variables
+.env
+
+# mise tool version manager
+.mise.local.toml

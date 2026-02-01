@@ -4,6 +4,18 @@ This guide will help you get the TaskBoard_Me application up and running in minu
 
 ## Prerequisites Check
 
+**Option 1: Using mise (Recommended)**
+
+If you have [mise](https://mise.jdx.dev/) installed, simply run:
+
+```bash
+mise install
+```
+
+This will automatically install all required tools (Node.js, Java, Maven) with the correct versions.
+
+**Option 2: Manual Installation**
+
 Before starting, ensure you have:
 - ✅ Node.js 18+ (`node --version`)
 - ✅ npm (`npm --version`)

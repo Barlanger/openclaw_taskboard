@@ -44,6 +44,24 @@ A modern task management application built with Angular and Spring Boot, featuri
 ## Getting Started
 
 ### Prerequisites
+
+**Option 1: Using mise (Recommended)**
+
+[mise](https://mise.jdx.dev/) is a tool version manager that automatically installs and manages the correct versions of all required tools.
+
+1. Install mise:
+   ```bash
+   curl https://mise.run | sh
+   ```
+
+2. Install all project tools:
+   ```bash
+   mise install
+   ```
+
+That's it! All required tools (Node.js, Java, Maven) will be installed automatically.
+
+**Option 2: Manual Installation**
 - Node.js 18+ and npm
 - Java 17+
 - Maven 3.6+
