@@ -1,0 +1,78 @@
+<div class="blog-detail-container">
+  <button (click)="goBack()" class="back-button">← Back to Blog</button>
+
+  <div *ngIf="loading" class="loading">
+    <p>Loading blog post...</p>
+  </div>
+
+  <div *ngIf="!loading && blogPost" class="blog-post">
+    <div class="post-header">
+      <h1>{{ blogPost.title }}</h1>
+      <div class="post-meta">
+        <div class="author-info">
+          <img *ngIf="blogPost.author.avatarUrl" [src]="blogPost.author.avatarUrl" alt="{{ blogPost.author.name }}" class="avatar">
+          <div>
+            <div class="author-name">{{ blogPost.author.name }}</div>
+            <div class="post-date">{{ formatDate(blogPost.createdAt) }}</div>
+          </div>
+        </div>
+        <span *ngIf="!blogPost.published" class="draft-badge">DRAFT</span>
+      </div>
+    </div>
+
+    <div class="post-content">
+      <p>{{ blogPost.content }}</p>
+    </div>
+
+    <div class="comments-section">
+      <h2>💬 Comments ({{ comments.length }})</h2>
+
+      <div *ngIf="isAuthenticated" class="comment-form">
+        <textarea
+          [(ngModel)]="newComment"
+          placeholder="Write a comment..."
+          rows="3"
+          [disabled]="submittingComment"
+        ></textarea>
+        <button
+          (click)="submitComment()"
+          [disabled]="!newComment.trim() || submittingComment"
+          class="submit-button"
+        >
+          {{ submittingComment ? 'Submitting...' : 'Post Comment' }}
+        </button>
+      </div>
+
+      <div *ngIf="!isAuthenticated" class="login-prompt">
+        <p>Please <a routerLink="/login">login</a> to comment on this post.</p>
+      </div>
+
+      <div class="comments-list">
+        <div *ngFor="let comment of comments" class="comment">
+          <div class="comment-header">
+            <div class="comment-author">
+              <img *ngIf="comment.author.avatarUrl" [src]="comment.author.avatarUrl" alt="{{ comment.author.name }}" class="comment-avatar">
+              <div>
+                <div class="comment-author-name">{{ comment.author.name }}</div>
+                <div class="comment-date">{{ formatDate(comment.createdAt) }}</div>
+              </div>
+            </div>
+            <button
+              *ngIf="canDeleteComment(comment)"
+              (click)="deleteComment(comment.id)"
+              class="delete-button"
+              title="Delete comment"
+            >
+              🗑️
+            </button>
+          </div>
+          <div class="comment-content">{{ comment.content }}</div>
+        </div>
+
+        <div *ngIf="comments.length === 0" class="no-comments">
+          <p>No comments yet. Be the first to comment!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

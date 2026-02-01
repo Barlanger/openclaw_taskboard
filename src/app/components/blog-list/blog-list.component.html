@@ -1,0 +1,41 @@
+<div class="blog-list-container">
+  <div class="header">
+    <h1>📝 Blog Posts</h1>
+    <button *ngIf="isAdmin" (click)="goToAdmin()" class="admin-button">
+      🔐 Admin Panel
+    </button>
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    <p>Loading blog posts...</p>
+  </div>
+
+  <div *ngIf="!loading && blogPosts.length === 0" class="no-posts">
+    <p>No blog posts available yet.</p>
+    <p *ngIf="isAdmin">Go to the Admin Panel to create your first post!</p>
+  </div>
+
+  <div class="blog-posts-grid">
+    <div *ngFor="let post of blogPosts" class="blog-card" (click)="viewPost(post.id)">
+      <div class="card-header">
+        <h2>{{ post.title }}</h2>
+        <span *ngIf="!post.published" class="draft-badge">DRAFT</span>
+      </div>
+      
+      <div class="card-meta">
+        <span class="author">
+          <img *ngIf="post.author.avatarUrl" [src]="post.author.avatarUrl" alt="{{ post.author.name }}" class="avatar">
+          {{ post.author.name }}
+        </span>
+        <span class="date">{{ formatDate(post.createdAt) }}</span>
+      </div>
+      
+      <p class="content-preview">{{ post.content.substring(0, 150) }}{{ post.content.length > 150 ? '...' : '' }}</p>
+      
+      <div class="card-footer">
+        <span class="comments-count">💬 {{ post.comments?.length || 0 }} comments</span>
+        <span class="read-more">Read more →</span>
+      </div>
+    </div>
+  </div>
+</div>
