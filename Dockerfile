@@ -6,8 +6,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci
+# Install dependencies with legacy peer deps
+RUN npm install --legacy-peer-deps
 
 # Copy source code
 COPY . .
@@ -21,8 +21,8 @@ FROM nginx:alpine
 # Copy custom nginx config
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Copy built application from builder
-COPY --from=builder /app/dist/openclaw_taskboard /usr/share/nginx/html
+# Copy built application from builder (Angular 17+ uses browser subdirectory)
+COPY --from=builder /app/dist/openclaw_taskboard/browser /usr/share/nginx/html
 
 # Expose port
 EXPOSE 80

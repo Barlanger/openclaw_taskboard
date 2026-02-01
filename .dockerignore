@@ -6,10 +6,9 @@ dist
 .editorconfig
 README.md
 BLOG_README.md
-*.md
+DOCKER_SETUP.md
 .vscode
 backend
-nginx.conf
 Dockerfile
 docker-compose.yml
 .env
