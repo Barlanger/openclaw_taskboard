@@ -1,1 +1,23 @@
-<router-outlet />
+<div class="app-container">
+  <nav class="navbar" *ngIf="currentUser">
+    <div class="nav-content">
+      <div class="nav-brand">
+        <a routerLink="/dashboard" routerLinkActive="active">📋 TaskBoard</a>
+      </div>
+      <div class="nav-links">
+        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        <a routerLink="/blog" routerLinkActive="active">Blog</a>
+        <a *ngIf="currentUser?.isAdmin" routerLink="/admin" routerLinkActive="active" class="admin-link">
+          🔐 Admin
+        </a>
+      </div>
+      <div class="nav-user">
+        <span class="user-name">{{ currentUser?.name }}</span>
+        <button (click)="logout()" class="logout-button">Logout</button>
+      </div>
+    </div>
+  </nav>
+  <main [class.with-navbar]="currentUser">
+    <router-outlet />
+  </main>
+</div>
