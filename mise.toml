@@ -7,17 +7,11 @@
 node = "22.12.0"
 
 # Java for Spring Boot backend (v17 required)
-java = "temurin-17.0.12+7"
+java = "temurin-17"
 
 # Maven for backend build (v3.6+ required)
 maven = "3.9.6"
 
 [env]
-# Environment variables for the project
-_.file = ".env"
-
-# Java configuration
-JAVA_HOME = "{{config_root}}/.mise/installs/java/temurin-17.0.12+7"
-
 # Maven configuration  
 MAVEN_OPTS = "-Xmx1024m"
