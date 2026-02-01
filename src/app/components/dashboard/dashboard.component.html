@@ -1,22 +1,27 @@
 <div class="dashboard-container">
   <header class="dashboard-header">
     <h1>TaskBoard Dashboard</h1>
-    <div class="view-toggle">
-      <button 
-        [class.active]="activeView === 'both'"
-        (click)="setView('both')">
-        Both Views
+    <div class="header-actions">
+      <button class="btn-create-task" (click)="openTaskForm()">
+        <span class="icon">+</span> Create Task
       </button>
-      <button 
-        [class.active]="activeView === 'kanban'"
-        (click)="setView('kanban')">
-        Kanban
-      </button>
-      <button 
-        [class.active]="activeView === 'calendar'"
-        (click)="setView('calendar')">
-        Calendar
-      </button>
+      <div class="view-toggle">
+        <button 
+          [class.active]="activeView === 'both'"
+          (click)="setView('both')">
+          Both Views
+        </button>
+        <button 
+          [class.active]="activeView === 'kanban'"
+          (click)="setView('kanban')">
+          Kanban
+        </button>
+        <button 
+          [class.active]="activeView === 'calendar'"
+          (click)="setView('calendar')">
+          Calendar
+        </button>
+      </div>
     </div>
   </header>
 
@@ -41,4 +46,11 @@
       <app-calendar-view></app-calendar-view>
     </div>
   </div>
+
+  <app-task-form
+    [isOpen]="isTaskFormOpen"
+    [task]="taskToEdit"
+    (save)="saveTask($event)"
+    (cancel)="closeTaskForm()">
+  </app-task-form>
 </div>
