@@ -1,0 +1,16 @@
+package com.taskboard.backend.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserDTO {
+    private Long id;
+    private String email;
+    private String name;
+    private Boolean isAdmin;
+    private String avatarUrl;
+}
