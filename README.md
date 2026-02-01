@@ -45,7 +45,25 @@ A modern task management application built with Angular and Spring Boot, featuri
 
 ### Prerequisites
 
-**Option 1: Using mise (Recommended)**
+**Option 1: Using Docker (Easiest)**
+
+The fastest way to get started is using Docker. This requires only Docker and Docker Compose installed.
+
+1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop) (includes Docker Compose)
+
+2. Start both frontend and backend:
+   ```bash
+   docker-compose up
+   ```
+
+That's it! The application will be available at:
+- Frontend: `http://localhost:4200`
+- Backend API: `http://localhost:8080`
+- H2 Console: `http://localhost:8080/h2-console`
+
+See [DOCKER.md](DOCKER.md) for detailed Docker usage and troubleshooting.
+
+**Option 2: Using mise (Recommended for Development)**
 
 [mise](https://mise.jdx.dev/) is a tool version manager that automatically installs and manages the correct versions of all required tools.
 
@@ -61,7 +79,7 @@ A modern task management application built with Angular and Spring Boot, featuri
 
 That's it! All required tools (Node.js, Java, Maven) will be installed automatically.
 
-**Option 2: Manual Installation**
+**Option 3: Manual Installation**
 - Node.js 22+ and npm
 - Java 17+
 - Maven 3.6+
