@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Dark nerd-themed global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', Consolas, Monaco, monospace;
+  background: #010409;
+  color: #c9d1d9;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+/* Selection color */
+::selection {
+  background: #58a6ff;
+  color: #fff;
+}
+
+/* Links */
+a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Code styling */
+code {
+  font-family: 'Courier New', Consolas, Monaco, monospace;
+}
