@@ -17,9 +17,9 @@ This will automatically install all required tools (Node.js, Java, Maven) with t
 **Option 2: Manual Installation**
 
 Before starting, ensure you have:
-- ✅ Node.js 18+ (`node --version`)
+- ✅ Node.js 22+ (`node --version`)
 - ✅ npm (`npm --version`)
-- ✅ Java 17+ (`java --version`)
+- ✅ Java 21+ (`java --version`)
 - ✅ Maven 3.6+ (`mvn --version`)
 
 ## Step 1: Start the Backend

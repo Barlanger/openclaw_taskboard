@@ -62,8 +62,8 @@ A modern task management application built with Angular and Spring Boot, featuri
 That's it! All required tools (Node.js, Java, Maven) will be installed automatically.
 
 **Option 2: Manual Installation**
-- Node.js 18+ and npm
-- Java 17+
+- Node.js 22+ and npm
+- Java 21+
 - Maven 3.6+
 
 ### Running the Backend
@@ -179,14 +179,14 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Technologies Used
 
 ### Frontend
-- Angular 21.1.0
+- Angular 21.1.2
 - TypeScript 5.9
 - Angular CDK (for drag-and-drop)
 - RxJS for reactive programming
 
 ### Backend
-- Spring Boot 3.2.1
-- Java 17
+- Spring Boot 4.0.2
+- Java 21
 - Spring Data JPA
 - H2 Database
 - Lombok
