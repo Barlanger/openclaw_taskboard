@@ -4,8 +4,8 @@ Spring Boot backend service for the TaskBoard application.
 
 ## Technologies
 
-- Java 21
-- Spring Boot 4.0.2
+- Java 17
+- Spring Boot 3.4.1
 - Spring Data JPA
 - H2 Database (in-memory)
 - Maven

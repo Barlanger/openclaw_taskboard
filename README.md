@@ -63,7 +63,7 @@ That's it! All required tools (Node.js, Java, Maven) will be installed automatic
 
 **Option 2: Manual Installation**
 - Node.js 22+ and npm
-- Java 21+
+- Java 17+
 - Maven 3.6+
 
 ### Running the Backend
@@ -185,8 +185,8 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 - RxJS for reactive programming
 
 ### Backend
-- Spring Boot 4.0.2
-- Java 21
+- Spring Boot 3.4.1
+- Java 17
 - Spring Data JPA
 - H2 Database
 - Lombok
